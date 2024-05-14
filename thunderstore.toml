@@ -1,0 +1,43 @@
+[config]
+schemaVersion = "0.0.1"
+
+[package]
+namespace = "SGG_Modding"
+name = "SJSON"
+versionNumber = "1.0.0"
+description = "A plugin for handling .sjson files in ReturnOfModding."
+websiteUrl = "https://github.com/SGG-Modding/SJSON-Plugin"
+containsNsfwContent = false
+
+[package.dependencies]
+Hell2Modding-Hell2Modding = "1.0.21"
+SGG_Modding-ENVY = "1.0.0"
+
+[build]
+icon = "./icon.png"
+readme = "./README.md"
+outdir = "./build"
+
+[[build.copy]]
+source = "./CHANGELOG.md"
+target = "./CHANGELOG.md"
+
+[[build.copy]]
+source = "./LICENSE"
+target = "./LICENSE"
+
+[[build.copy]]
+source = "./licenses"
+target = "./"
+
+[[build.copy]]
+source = "./src"
+target = "./"
+
+
+[publish]
+repository = "https://thunderstore.io"
+communities = [ "hades-ii", ]
+
+[publish.categories]
+hades-ii = [ "libraries", "mods" ]
