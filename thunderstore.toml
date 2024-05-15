@@ -10,7 +10,7 @@ websiteUrl = "https://github.com/SGG-Modding/SJSON-Plugin"
 containsNsfwContent = false
 
 [package.dependencies]
-Hell2Modding-Hell2Modding = "1.0.21"
+Hell2Modding-Hell2Modding = "1.0.22"
 SGG_Modding-ENVY = "1.0.0"
 
 [build]
