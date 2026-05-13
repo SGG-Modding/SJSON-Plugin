@@ -435,7 +435,7 @@ local MultiLineComment = P"/*" * (1 - P"*/")^0 * P"*/"
 local Space = (S" \n\r\t" + P"\239\187\191" + BasicComment + MultiLineComment)^0
 
 local PlainChar = 1 - S"\"\\\n\r"
-local SGGEscape = R("09","AZ","az") + S"_-[]" -- bad hack
+local SGGEscape = R("09","AZ","az") + S"_-[]." -- bad hack
 local EscapeSequence = P"\\" * g.C ((S"\"\\/bfnrt") / escapechars + SGGEscape)
 local HexDigit = R("09", "af", "AF")
 local function UTF16Surrogate (match, pos, high, low)
@@ -457,13 +457,11 @@ local BasicStringChar = S" \n\r\t" + P"\239\187\191" + Char
 --local ComplexStringChar = (BasicStringChar * BasicStringChar^-1) + g.Cg(P'"""','end') + (P'"' * P'"'^-1)
 local BasicString = P'"' * g.Cs (BasicStringChar ^ 0) * (P'"' + Err "unterminated string")
 local ComplexString --= P'"""' * g.Cs (BasicStringChar ^ 0) * (P'"""' + Err "unterminated multiline string")
-do -- https://www.gammon.com.au/scripts/doc.php?lua=lpeg.Cmt
-	local equals = g.P'"'
-	local open = '"' * g.Cg(equals, "init") * '"'
-	local close = '"' * g.C(equals) * '"'
-	local closeeq = g.Cmt(close * g.Cb("init"), function (s, i, a, b) return a == b end)
-	local string = open * g.C((g.P(1) - closeeq)^0) * close / 1
-	ComplexString = string
+do
+	-- The H2 engine only terminates multiline strings if a """ is not followed by another "
+	-- """"""" means """ + " + """ so should be parsed to simply "
+	local TripleClose = P'"""' * (-P'"')
+	ComplexString = P'"""' * g.C((g.P(1) - TripleClose)^0) * P'"""'
 end
 
 local Integer = P"-"^(-1) * (P"0" + (R"19" * R"09"^0))
