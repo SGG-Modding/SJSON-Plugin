@@ -4,7 +4,7 @@ schemaVersion = "0.0.1"
 [package]
 namespace = "SGG_Modding"
 name = "SJSON"
-versionNumber = "1.0.0"
+versionNumber = "1.0.1"
 description = "A plugin for handling .sjson files in ReturnOfModding."
 websiteUrl = "https://github.com/SGG-Modding/SJSON-Plugin"
 containsNsfwContent = false
