@@ -458,7 +458,7 @@ local BasicStringChar = S" \n\r\t" + P"\239\187\191" + Char
 local BasicString = P'"' * g.Cs (BasicStringChar ^ 0) * (P'"' + Err "unterminated string")
 local ComplexString --= P'"""' * g.Cs (BasicStringChar ^ 0) * (P'"""' + Err "unterminated multiline string")
 do
-  -- The H2 engine only terminates multiline strings if a """ is not followed by another "
+	-- The H2 engine only terminates multiline strings if a """ is not followed by another "
 	-- """"""" means """ + " + """ so should be parsed to simply "
 	local TripleClose = P'"""' * (-P'"')
 	ComplexString = P'"""' * g.C((g.P(1) - TripleClose)^0) * P'"""'
