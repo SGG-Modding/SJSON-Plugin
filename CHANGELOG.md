@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 - Fixed parsing for multiline strings with seven quotes `"""""""`.
+- Fixed `get_order()` returning the type instead of the key order of an object.
 
 ## [1.0.0] - 2024-05-15
 

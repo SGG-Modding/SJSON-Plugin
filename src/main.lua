@@ -102,7 +102,7 @@ end
 function public.get_order(data)
 	local meta = getmetatable(data)
 	if not meta then return nil end
-	return meta.__sjsontype
+	return meta.__sjsonorder
 end
 
 function public.join_order(orderA, orderB)
