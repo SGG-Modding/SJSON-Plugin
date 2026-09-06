@@ -7,7 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Changed icon to a simpler one.
+
 ## [1.0.1] - 2026-05-13
+
+### Fixed
 
 - Fixed parsing for multiline strings with seven quotes `"""""""`.
 - Fixed `get_order()` returning the type instead of the key order of an object.
