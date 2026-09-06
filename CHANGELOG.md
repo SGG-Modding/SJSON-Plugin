@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.2] - 2026-09-06
+
 ### Changed
 
 - Changed icon to a simpler one.
@@ -24,6 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial Thunderstore release.
 
-[unreleased]: https://github.com/SGG-Modding/SJSON-Plugin/compare/1.0.1...HEAD
+[unreleased]: https://github.com/SGG-Modding/SJSON-Plugin/compare/1.0.2...HEAD
+[1.0.2]: https://github.com/SGG-Modding/SJSON-Plugin/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/SGG-Modding/SJSON-Plugin/compare/1.0.0...1.0.1
 [1.0.0]: https://github.com/SGG-Modding/SJSON-Plugin/compare/5206c9a5ea72317f2779ffc426540c7a3c55c418...1.0.0
