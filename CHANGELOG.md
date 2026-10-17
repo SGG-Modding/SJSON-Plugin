@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- TThe plugin will now log which mods hook what sjson files.
+- The plugin will now log which mods hook what sjson files.
 
 ## [1.0.2] - 2026-09-06
 
