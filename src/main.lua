@@ -57,6 +57,13 @@ local function prepare_callbacks(path)
 	return callbacks
 end
 
+local function wrap_callback_for_logging(callback, path, guid)
+	return function (...)
+		rom.log.debug("Calling sjson hook for file", path, "by mod", guid)
+		return callback(...)
+	end
+end
+
 public.get_content_data_path = get_content_data_path
 public.get_game_data_path = get_game_data_path
 
@@ -126,7 +133,9 @@ function public.join_order(orderA, orderB)
 	return order
 end
 
-public.hook = function(path,callback)	
+public.hook = function(path,callback)
+	local env = envy.getfenv(2)
+	local guid = (env and env._PLUGIN and env._PLUGIN.guid) or (_PLUGIN and _PLUGIN.guid)
 	local callbacks = prepare_callbacks(path)
-	table.insert(callbacks,callback)
+	table.insert(callbacks, wrap_callback_for_logging(callback, path, guid))
 end
